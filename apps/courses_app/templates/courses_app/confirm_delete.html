@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Courses</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h2 class="my-3">Are you sure you want to delete the following course?</h2>
+            <div class="row my-2">
+                <div class="col-2">Name:</div>
+                <div class="col">{{course.title}}</div>
+            </div>
+            <div class="row my-2">
+                <div class="col-2">Description:</div>
+                <div class="col">{{course.desc}}</div>
+            </div>
+            <div class="row my-3">
+                <a class="btn btn-light mr-2" href="/courses">No</a>
+                <form action="/courses/destroy/{{course.id}}" method="post" class="form-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Yes I want to delete this</button>
+                </form>
+            </div>
+        </div>
+    
+    </body>
+</html>
